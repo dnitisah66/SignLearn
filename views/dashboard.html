@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - SignLearn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="container">
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper teal">
+      <a href="#" class="brand-logo center">SignLearn</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/book.html">Book Class</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <h4 class="center-align">Welcome to Your Dashboard</h4>
+
+  <!-- Course Cards -->
+  <div class="row">
+    <!-- Course 1 -->
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/sign1.png" alt="Course 1">
+          <span class="card-title">Course 1</span>
+        </div>
+        <div class="card-content">
+          <p>Learn the basics of sign language step by step.</p>
+          <p id="progress-course1">Progress: Loading...</p>
+        </div>
+        <div class="card-action">
+          <a href="/course1.html" class="btn teal">Start</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course 2 -->
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/sign2.png" alt="Course 2">
+          <span class="card-title">Course 2</span>
+        </div>
+        <div class="card-content">
+          <p>Continue your journey with advanced signs.</p>
+          <p id="progress-course2">Progress: Loading...</p>
+        </div>
+        <div class="card-action">
+          <a href="/course2.html" class="btn teal">Start</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book Class Shortcut -->
+  <div class="center-align">
+    <a href="/book.html" class="btn-large waves-effect waves-light teal">📅 Book a Class</a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    // Fetch progress when dashboard loads
+    fetch("/progress")
+      .then(res => res.json())
+      .then(data => {
+        let c1 = data.find(p => p.course === "Course1");
+        let c2 = data.find(p => p.course === "Course2");
+
+        document.getElementById("progress-course1").innerText =
+          c1 ? `Progress: ${c1.completed}/${c1.total}` : "Progress: 0/3";
+
+        document.getElementById("progress-course2").innerText =
+          c2 ? `Progress: ${c2.completed}/${c2.total}` : "Progress: 0/3";
+      })
+      .catch(err => console.error("Error loading progress:", err));
+  </script>
+</body>
+</html>
