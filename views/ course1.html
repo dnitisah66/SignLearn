@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course 1 - SignLearn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body class="container">
+  <h4 class="center-align">Learn Basic Signs</h4>
+  <div class="card-panel center-align">
+    <img id="lessonImage" src="/images/sign1.png" class="responsive-img">
+    <br>
+    <button onclick="prevImage()" class="btn">Prev</button>
+    <button onclick="nextImage()" class="btn">Next</button>
+  </div>
+  
+  <script>
+    let images = ["/images/sign1.png", "/images/sign2.png", "/images/sign3.png"];
+    let index = 0;
+    function nextImage() {
+      if (index < images.length - 1) index++;
+      document.getElementById("lessonImage").src = images[index];
+    }
+    function prevImage() {
+      if (index > 0) index--;
+      document.getElementById("lessonImage").src = images[index];
+    }
+  </script>
+</body>
+</html>
