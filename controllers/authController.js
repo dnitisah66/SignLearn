@@ -7,7 +7,7 @@ exports.register = async (req, res) => {
     await User.create({ email: req.body.email, password: hashedPassword });
     res.send("✅ User registered!");
   } catch (err) {
-    res.status(500).send("❌ Registration failed");
+    res.status(500).send(" ❌ Registration failed");
   }
 };
 
