@@ -1,0 +1,1829 @@
+/* SignLearn - Complete Navigation Fix + Sprint 2 Features */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation - Complete Override */
+nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: white !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    height: 64px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 64px !important;
+}
+
+nav .nav-wrapper {
+    height: 64px !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    line-height: 64px !important;
+}
+
+/* Brand Logo - Force Clean Layout */
+nav .brand-logo {
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+    color: #26a69a !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    height: 64px !important;
+    line-height: 64px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    float: none !important;
+    position: static !important;
+    transform: none !important;
+}
+
+nav .brand-logo .material-icons {
+    font-size: 2rem !important;
+    margin-right: 8px !important;
+    color: #26a69a !important;
+    vertical-align: middle !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+    float: none !important;
+}
+
+nav .brand-logo .left {
+    margin-right: 8px !important;
+    margin-left: 0 !important;
+    float: none !important;
+}
+
+/* Navigation Links - Force Clean Layout */
+nav ul {
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    gap: 0 !important;
+    flex-shrink: 0 !important;
+    float: none !important;
+    position: static !important;
+    transform: none !important;
+}
+
+nav ul.right {
+    float: none !important;
+    position: static !important;
+    transform: none !important;
+}
+
+nav ul li {
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    float: none !important;
+}
+
+nav ul li a {
+    color: #26a69a !important;
+    font-weight: 500 !important;
+    padding: 0 15px !important;
+    height: 64px !important;
+    line-height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: color 0.3s ease !important;
+    font-size: 1rem !important;
+    float: none !important;
+}
+
+nav ul li a:hover {
+    color: #2bbbad !important;
+    background: none !important;
+}
+
+/* Override Materialize completely */
+nav .brand-logo:not(.sidenav-trigger) {
+    float: none !important;
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+nav ul.right {
+    float: none !important;
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+/* Body padding for fixed nav */
+body {
+    padding-top: 64px !important;
+}
+
+/* Background Variations */
+.login-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.register-bg {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    min-height: 100vh;
+}
+
+.dashboard-bg {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    min-height: 100vh;
+}
+
+.booking-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.course-bg {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+/* Login/Register Pages */
+.main-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo-circle .material-icons {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.app-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.app-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+}
+
+.form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-container p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field .prefix {
+    color: #26a69a;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.input-field input {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px 0 45px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-field input:focus {
+    border-color: #26a69a;
+}
+
+.input-field label {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-field input:focus + label,
+.input-field input:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: #26a69a;
+    background: white;
+    padding: 0 5px;
+}
+
+.btn {
+    background: #26a69a;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2bbbad;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(38, 166, 154, 0.3);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.register-link a {
+    color: #26a69a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Styles */
+.welcome-section {
+    text-align: center;
+    padding: 40px 0;
+    color: white;
+}
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.stat-card .material-icons {
+    font-size: 3rem;
+    color: #26a69a;
+    margin-bottom: 15px;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Book Session Card */
+.book-session-section {
+    margin: 40px 0;
+}
+
+.book-session-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    margin: 20px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-session-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.book-session-icon {
+    flex-shrink: 0;
+}
+
+.book-session-icon .material-icons {
+    font-size: 4rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.book-session-text h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.book-session-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.book-session-features {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 500;
+}
+
+.feature-item .material-icons {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.book-session-btn {
+    background: white !important;
+    color: #667eea !important;
+    border-radius: 30px !important;
+    padding: 0 40px !important;
+    height: 60px !important;
+    line-height: 60px !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    text-transform: none !important;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.book-session-btn:hover {
+    background: #f8f9fa !important;
+    color: #5a6fd8 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Courses Section */
+.courses-section {
+    margin: 40px 0;
+}
+
+.courses-section h3 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.course-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-content {
+    text-align: center;
+}
+
+.course-content .material-icons {
+    font-size: 3rem;
+    color: #26a69a;
+    margin-bottom: 20px;
+}
+
+.course-content h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.course-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.progress {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 8px;
+    margin-bottom: 20px;
+}
+
+.progress .determinate {
+    background: linear-gradient(90deg, #26a69a, #4caf50);
+    border-radius: 10px;
+}
+
+/* Booking Page Styles */
+.booking-header {
+    text-align: center;
+    padding: 40px 0;
+    color: white;
+}
+
+.booking-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.booking-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.info-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.info-section h4 {
+    color: #26a69a;
+    margin-bottom: 15px;
+}
+
+.info-section p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.tutors-section {
+    margin: 40px 0;
+}
+
+.tutors-section h4 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.tutor-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.tutor-card:hover {
+    transform: translateY(-5px);
+}
+
+.tutor-avatar {
+    width: 80px;
+    height: 80px;
+    background: #26a69a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.tutor-avatar .material-icons {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.tutor-card h5 {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.tutor-title {
+    color: #666;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.select-tutor {
+    border-radius: 25px;
+    padding: 0 30px;
+}
+
+.booking-form-section {
+    margin: 40px 0;
+}
+
+.booking-form-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.booking-form-card h4 {
+    color: #26a69a;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-section {
+    margin: 40px 0 60px 0;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.contact-card .material-icons {
+    font-size: 3rem;
+    color: #26a69a;
+    margin-bottom: 15px;
+}
+
+.contact-card h5 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Course Page Styles */
+.course-header {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.course-title-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.course-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #26a69a, #4caf50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.course-icon .material-icons {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.course-info h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.course-info p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.course-stats {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #26a69a;
+    font-weight: 500;
+}
+
+.stat-item .material-icons {
+    font-size: 1.2rem;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress {
+    flex: 1;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 10px;
+}
+
+.progress .determinate {
+    background: linear-gradient(90deg, #26a69a, #4caf50);
+    border-radius: 10px;
+}
+
+.progress-text {
+    color: #666;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Image Gallery Styles */
+.image-gallery-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.image-gallery-section h3 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.image-gallery-section p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.gallery-item {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.image-container {
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sign-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .sign-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay .material-icons {
+    font-size: 3rem;
+    color: white;
+}
+
+.gallery-item h4 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.gallery-item p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Learning Modules */
+.learning-modules {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.learning-modules h3 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.module-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.module-card:hover {
+    border-color: #26a69a;
+    box-shadow: 0 5px 15px rgba(38, 166, 154, 0.1);
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.module-header .material-icons {
+    font-size: 2rem;
+    color: #26a69a;
+}
+
+.module-header h4 {
+    color: #333;
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.module-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.module-progress {
+    margin-bottom: 20px;
+}
+
+.module-progress .progress {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 8px;
+    margin-bottom: 8px;
+}
+
+.module-progress span {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.start-module {
+    width: 100%;
+    border-radius: 25px;
+    padding: 0 20px;
+}
+
+/* Practice Section */
+.practice-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.practice-section h3 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.practice-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.practice-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+}
+
+.practice-card .material-icons {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.practice-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.practice-card p {
+    margin-bottom: 20px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.practice-card .btn {
+    background: white !important;
+    color: #667eea !important;
+    border-radius: 25px !important;
+    padding: 0 25px !important;
+    font-weight: 600 !important;
+}
+
+.practice-card .btn:hover {
+    background: #f8f9fa !important;
+    color: #5a6fd8 !important;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 30px;
+}
+
+.modal-info h4 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.modal-info p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    nav .nav-wrapper {
+        padding: 0 10px;
+    }
+    
+    nav .brand-logo {
+        font-size: 1.2rem !important;
+    }
+    
+    nav .brand-logo .material-icons {
+        font-size: 1.5rem !important;
+    }
+    
+    nav ul li a {
+        padding: 0 8px;
+        font-size: 0.9rem;
+    }
+    
+    .course-title-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .course-info h1 {
+        font-size: 2rem;
+    }
+    
+    .course-stats {
+        justify-content: center;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .practice-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .book-session-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .book-session-text h3 {
+        font-size: 2rem;
+    }
+    
+    .book-session-features {
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .nav-wrapper {
+        flex-direction: column;
+        height: auto !important;
+        padding: 10px;
+    }
+    
+    nav {
+        height: auto !important;
+    }
+    
+    body {
+        padding-top: 100px !important;
+    }
+    
+    nav .brand-logo {
+        margin-bottom: 10px;
+        height: auto !important;
+        line-height: 1.2 !important;
+    }
+    
+    nav ul {
+        height: auto !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        height: auto !important;
+        margin: 5px;
+    }
+    
+    nav ul li a {
+        height: auto !important;
+        line-height: 1.2 !important;
+        padding: 8px 12px;
+    }
+    
+    .course-header,
+    .image-gallery-section,
+    .learning-modules,
+    .practice-section,
+    .book-session-card {
+        padding: 20px;
+    }
+    
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .book-session-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .book-session-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .book-session-btn {
+        height: 50px !important;
+        line-height: 50px !important;
+        padding: 0 30px !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* ===== SPRINT 2 FEATURES ===== */
+
+/* Dashboard Styles */
+.dashboard-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 40px 0;
+    color: white;
+}
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.progress-overview {
+    margin: 30px 0;
+}
+
+.progress-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+.progress-card:hover {
+    transform: translateY(-5px);
+}
+
+.progress-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.progress-info h5 {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.courses-section {
+    margin: 40px 0;
+}
+
+.courses-section h3 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.course-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.course-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.course-info h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.course-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.course-progress {
+    margin: 20px 0;
+}
+
+.course-progress .progress {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.course-progress .determinate {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.course-progress span {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.course-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.quick-actions {
+    margin: 40px 0;
+}
+
+.quick-actions h3 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.action-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+}
+
+.action-card i {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.action-card h5 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.action-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.recent-activity {
+    margin: 40px 0;
+}
+
+.recent-activity h3 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.activity-list {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-item i {
+    color: #667eea;
+    font-size: 20px;
+}
+
+.activity-content p {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.activity-time {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Profile Modal */
+.profile-form {
+    padding: 20px 0;
+}
+
+.profile-form .input-field {
+    margin-bottom: 20px;
+}
+
+/* Quiz Styles */
+.quiz-option {
+    margin: 5px;
+    min-width: 150px;
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quiz-score {
+    text-align: center;
+    padding: 20px;
+}
+
+.quiz-score h5 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.quiz-score p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Course 2 Specific Styles */
+.image-gallery-section {
+    margin: 40px 0;
+}
+
+.image-gallery-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.image-gallery-section p {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Enhanced Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.gallery-item {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.image-container {
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sign-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .sign-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+.gallery-item h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.gallery-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Learning Modules */
+.learning-modules {
+    margin: 40px 0;
+}
+
+.learning-modules h3 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.module-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.module-header i {
+    color: #667eea;
+    font-size: 24px;
+}
+
+.module-header h4 {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.module-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.module-progress {
+    margin: 20px 0;
+}
+
+.module-progress .progress {
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.module-progress .determinate {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.module-progress span {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Practice Section */
+.practice-section {
+    margin: 40px 0;
+}
+
+.practice-section h3 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.practice-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.practice-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+}
+
+.practice-card i {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.practice-card h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.practice-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Modal Enhancements */
+.modal {
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 5% auto;
+    position: relative;
+}
+
+.modal-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-info h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.modal-info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Responsive Design for Sprint 2 */
+@media (max-width: 768px) {
+    .progress-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .course-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .course-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .action-card {
+        margin-bottom: 20px;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .practice-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+}

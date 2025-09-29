@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignLearn - Book a Session</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="booking-bg">
+    <!-- Navigation -->
+    <nav class="white">
+        <div class="nav-wrapper container">
+            <a href="/dashboard" class="brand-logo teal-text">
+                <i class="material-icons left">gesture</i>SignLearn
+            </a>
+            <ul class="right">
+                <li><a href="/dashboard" class="teal-text">Dashboard</a></li>
+                <li><a href="/api/auth/logout" class="teal-text">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="booking-header">
+            <h2>Find a Sign Language Tutor</h2>
+            <p>SignLearn provides one-to-one or small group sign language tuition. Choose from our expert tutors below.</p>
+        </div>
+
+        <!-- Why Private Tutoring Section -->
+        <div class="info-section">
+            <h4>Why Private Tutoring?</h4>
+            <p>Private sign language tutoring creates a stress-free, one-on-one environment, free from interruptions. It improves student self-esteem and creates more confidence, allowing students to think more creatively.</p>
+        </div>
+
+        <!-- Available Tutors -->
+        <div class="tutors-section">
+            <h4>Meet The Tutors</h4>
+            <div class="row">
+                <div class="col s12 m6 l4">
+                    <div class="tutor-card">
+                        <div class="tutor-avatar">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <h5>Dr. Sarah Mitchell</h5>
+                        <p class="tutor-title">CEO, Sign Language Teacher & Material Developer</p>
+                        <button class="btn teal select-tutor" data-tutor="sarah">Select Tutor</button>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4">
+                    <div class="tutor-card">
+                        <div class="tutor-avatar">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <h5>Monica Harper</h5>
+                        <p class="tutor-title">Sign Language Tutor</p>
+                        <button class="btn teal select-tutor" data-tutor="monica">Select Tutor</button>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4">
+                    <div class="tutor-card">
+                        <div class="tutor-avatar">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <h5>Kevin Johnson</h5>
+                        <p class="tutor-title">Sign Language Tutor</p>
+                        <button class="btn teal select-tutor" data-tutor="kevin">Select Tutor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form-section">
+            <div class="booking-form-card">
+                <h4>Book Your Session</h4>
+                <form id="bookingForm">
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="input-field">
+                                <select id="tutor-select" required>
+                                    <option value="" disabled selected>Choose your tutor</option>
+                                    <option value="sarah">Dr. Sarah Mitchell</option>
+                                    <option value="monica">Monica Harper</option>
+                                    <option value="kevin">Kevin Johnson</option>
+                                </select>
+                                <label>Select Tutor</label>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <div class="input-field">
+                                <select id="session-type" required>
+                                    <option value="" disabled selected>Choose session type</option>
+                                    <option value="basic">Basic Conversational Practice</option>
+                                    <option value="grammar">Grammar & Language Structure</option>
+                                    <option value="vocabulary">Specialized Vocabulary</option>
+                                    <option value="advanced">Advanced Expressions</option>
+                                </select>
+                                <label>Session Type</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="input-field">
+                                <input type="date" id="session-date" class="validate" required>
+                                <label for="session-date">Preferred Date</label>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <div class="input-field">
+                                <select id="session-time" required>
+                                    <option value="" disabled selected>Choose time</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                </select>
+                                <label>Preferred Time</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="input-field">
+                                <textarea id="special-requests" class="materialize-textarea"></textarea>
+                                <label for="special-requests">Special Requests or Learning Goals</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button class="btn-large teal waves-effect waves-light" type="submit">
+                                Book Session
+                                <i class="material-icons right">event</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-section">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="contact-card">
+                        <i class="material-icons">email</i>
+                        <h5>Email Us</h5>
+                        <p>info@signlearn.com</p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="contact-card">
+                        <i class="material-icons">phone</i>
+                        <h5>Call Us</h5>
+                        <p>0400 123 456</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

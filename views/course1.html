@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignLearn - Basic Signs Course</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="course-bg">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/dashboard" class="brand-logo">
+                <i class="material-icons left">gesture</i>SignLearn
+            </a>
+            <ul class="right">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/book">Book Session</a></li>
+                <li><a href="/api/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Course Header -->
+        <div class="course-header">
+            <div class="course-title-section">
+                <div class="course-icon">
+                    <i class="material-icons">favorite</i>
+                </div>
+                <div class="course-info">
+                    <h1>Basic Signs Course</h1>
+                    <p>Learn essential sign language gestures and expressions</p>
+                    <div class="course-stats">
+                        <span class="stat-item">
+                            <i class="material-icons">schedule</i>
+                            <span>2-3 hours</span>
+                        </span>
+                        <span class="stat-item">
+                            <i class="material-icons">school</i>
+                            <span>Beginner</span>
+                        </span>
+                        <span class="stat-item">
+                            <i class="material-icons">people</i>
+                            <span>Self-paced</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="determinate" style="width: 0%"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+            </div>
+        </div>
+
+        <!-- Course Content -->
+        <div class="course-content">
+            <!-- Image Gallery Section -->
+            <div class="image-gallery-section">
+                <h3>Sign Language Basics</h3>
+                <p>Click on any image below to learn the corresponding sign language gesture</p>
+                
+                <div class="image-gallery">
+                    <div class="gallery-item" data-sign="hello">
+                        <div class="image-container">
+                            <img src="/images/hello_basic.png" alt="Hello Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Hello</h4>
+                        <p>Basic greeting gesture</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="thank-you">
+                        <div class="image-container">
+                            <img src="/images/thank_you_basic.png" alt="Thank You Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Thank You</h4>
+                        <p>Polite expression gesture</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="please">
+                        <div class="image-container">
+                            <img src="/images/please_basic.png" alt="Please Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Please</h4>
+                        <p>Polite request gesture</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="yes">
+                        <div class="image-container">
+                            <img src="/images/yes_basic.png" alt="Yes Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Yes</h4>
+                        <p>Affirmative response</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="no">
+                        <div class="image-container">
+                            <img src="/images/no_basic.png" alt="No Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>No</h4>
+                        <p>Negative response</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="help">
+                        <div class="image-container">
+                            <img src="/images/help_basic.png" alt="Help Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Help</h4>
+                        <p>Request for assistance</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Modules -->
+            <div class="learning-modules">
+                <h3>Learning Modules</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <i class="material-icons">gesture</i>
+                            <h4>Module 1: Greetings</h4>
+                        </div>
+                        <p>Learn basic greeting signs including hello, goodbye, and how are you.</p>
+                        <div class="module-progress">
+                            <div class="progress">
+                                <div class="determinate" style="width: 0%"></div>
+                            </div>
+                            <span>0% Complete</span>
+                        </div>
+                        <button class="btn teal start-module" data-module="1">Start Module</button>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <i class="material-icons">favorite</i>
+                            <h4>Module 2: Common Words</h4>
+                        </div>
+                        <p>Master essential everyday words and expressions.</p>
+                        <div class="module-progress">
+                            <div class="progress">
+                                <div class="determinate" style="width: 0%"></div>
+                            </div>
+                            <span>0% Complete</span>
+                        </div>
+                        <button class="btn teal start-module" data-module="2">Start Module</button>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <i class="material-icons">people</i>
+                            <h4>Module 3: Family</h4>
+                        </div>
+                        <p>Learn signs for family members and relationships.</p>
+                        <div class="module-progress">
+                            <div class="progress">
+                                <div class="determinate" style="width: 0%"></div>
+                            </div>
+                            <span>0% Complete</span>
+                        </div>
+                        <button class="btn teal start-module" data-module="3">Start Module</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Section -->
+            <div class="practice-section">
+                <h3>Practice Your Skills</h3>
+                <div class="practice-cards">
+                    <div class="practice-card">
+                        <i class="material-icons">quiz</i>
+                        <h4>Quiz</h4>
+                        <p>Test your knowledge with interactive quizzes</p>
+                        <button class="btn teal">Start Quiz</button>
+                    </div>
+                    <div class="practice-card">
+                        <i class="material-icons">record_voice_over</i>
+                        <h4>Practice</h4>
+                        <p>Practice signing with video feedback</p>
+                        <button class="btn teal">Start Practice</button>
+                    </div>
+                    <div class="practice-card">
+                        <i class="material-icons">book_online</i>
+                        <h4>Book Session</h4>
+                        <p>Get personalized help from our tutors</p>
+                        <a href="/book" class="btn teal">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h4 id="modalTitle"></h4>
+                <p id="modalDescription"></p>
+                <div class="modal-actions">
+                    <button class="btn teal">Practice This Sign</button>
+                    <button class="btn grey">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
