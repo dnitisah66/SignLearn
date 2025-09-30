@@ -1,8 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const progressController = require("../controllers/progressController");
+const progressController = require('../controllers/progressController');
 
-router.post("/progress/update", progressController.updateProgress);
-router.get("/progress", progressController.getProgress);
+// Progress routes
+router.get('/', progressController.getProgress);
+router.post('/', progressController.updateProgress);
+router.delete('/reset/:courseId', progressController.resetCourse);
+router.get('/stats/:courseId', progressController.getCourseStats);
 
- module.exports = router;
+module.exports = router;

@@ -1,21 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login - SignLearn</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignLearn - Login</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="container">
-  <h4 class="center-align">Login</h4>
-  <form action="/login" method="POST" class="card-panel">
-    <div class="input-field">
-      <input type="email" name="email" required>
-      <label>Email</label>
+<body>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <div class="logo-circle">
+                <i class="material-icons">gesture</i>
+            </div>
+            <h1 class="app-title">SignLearn</h1>
+            <p class="app-subtitle">Master sign language with interactive courses</p>
+        </div>
+
+        <!-- Login Form Container -->
+        <div class="form-container">
+            <h2>Welcome Back</h2>
+            <p>Sign in to continue your learning journey</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="input-field">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+                
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="password" type="password" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+                
+                <button class="btn waves-effect waves-light" type="submit">
+                    Login
+                    <i class="material-icons right">send</i>
+                </button>
+                
+                <div class="register-link">
+                    <p>Don't have an account? <a href="/register">Register here</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="input-field">
-      <input type="password" name="password" required>
-      <label>Password</label>
-    </div>
-    <button class="btn waves-effect waves-light" type="submit">Login</button>
-  </form>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+    <script>
+        // Debug script to check if JavaScript is loading
+        console.log('Login page loaded');
+        console.log('Login form element:', document.getElementById('loginForm'));
+        
+        // Add immediate event listener as backup
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up login form');
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                console.log('Login form found, adding event listener');
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log('Form submitted via backup handler');
+                    
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    
+                    console.log('Email:', email, 'Password:', password);
+                    
+                    if (!email || !password) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+                    
+                    // Make API call
+                    fetch('/api/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email, password })
+                    })
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log('Login response:', result);
+                        if (result.includes('✅')) {
+                            alert('Login successful! Redirecting...');
+                            window.location.href = '/dashboard';
+                        } else {
+                            alert('Login failed: ' + result);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Login error:', error);
+                        alert('Login failed. Please try again.');
+                    });
+                });
+            } else {
+                console.error('Login form not found!');
+            }
+        });
+    </script>
 </body>
 </html>

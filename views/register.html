@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignLearn - Register</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <div class="logo-circle">
+                <i class="material-icons">gesture</i>
+            </div>
+            <h1 class="app-title">SignLearn</h1>
+            <p class="app-subtitle">Master sign language with interactive courses</p>
+        </div>
+
+        <!-- Register Form Container -->
+        <div class="form-container">
+            <h2>Join SignLearn</h2>
+            <p>Create your account to start learning</p>
+            
+            <form id="registerForm" class="login-form">
+                <div class="input-field">
+                    <i class="material-icons prefix">email</i>
+                    <input id="reg_email" type="email" class="validate" required>
+                    <label for="reg_email">Email</label>
+                </div>
+                
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="reg_password" type="password" class="validate" required>
+                    <label for="reg_password">Password</label>
+                </div>
+                
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="confirm_password" type="password" class="validate" required>
+                    <label for="confirm_password">Confirm Password</label>
+                </div>
+                
+                <button class="btn waves-effect waves-light" type="submit">
+                    Register
+                    <i class="material-icons right">person_add</i>
+                </button>
+                
+                <div class="register-link">
+                    <p>Already have an account? <a href="/">Login here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+    <script>
+        // Debug script to check if JavaScript is loading
+        console.log('Register page loaded');
+        console.log('Register form element:', document.getElementById('registerForm'));
+        
+        // Add immediate event listener as backup
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up register form');
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                console.log('Register form found, adding event listener');
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log('Form submitted via backup handler');
+                    
+                    const email = document.getElementById('reg_email').value;
+                    const password = document.getElementById('reg_password').value;
+                    const confirmPassword = document.getElementById('confirm_password').value;
+                    
+                    console.log('Email:', email, 'Password:', password);
+                    
+                    if (!email || !password || !confirmPassword) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match!');
+                        return;
+                    }
+                    
+                    // Make API call
+                    fetch('/api/auth/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email, password })
+                    })
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log('Register response:', result);
+                        if (result.includes('✅')) {
+                            alert('Registration successful! Please login.');
+                            window.location.href = '/';
+                        } else {
+                            alert('Registration failed: ' + result);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Register error:', error);
+                        alert('Registration failed. Please try again.');
+                    });
+                });
+            } else {
+                console.error('Register form not found!');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignLearn - Intermediate Signs Course</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="course-bg">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/dashboard" class="brand-logo">
+                <i class="material-icons left">gesture</i>SignLearn
+            </a>
+            <ul class="right">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/book">Book Session</a></li>
+                <li><a href="/api/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Course Header -->
+        <div class="course-header">
+            <div class="course-title-section">
+                <div class="course-icon">
+                    <i class="material-icons">people</i>
+                </div>
+                <div class="course-info">
+                    <h1>Intermediate Signs Course</h1>
+                    <p>Master advanced sign language conversations and expressions</p>
+                    <div class="course-stats">
+                        <span class="stat-item">
+                            <i class="material-icons">schedule</i>
+                            <span>4-5 hours</span>
+                        </span>
+                        <span class="stat-item">
+                            <i class="material-icons">school</i>
+                            <span>Intermediate</span>
+                        </span>
+                        <span class="stat-item">
+                            <i class="material-icons">people</i>
+                            <span>Self-paced</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="determinate" id="courseProgress" style="width: 0%"></div>
+                </div>
+                <span class="progress-text" id="progressText">0% Complete</span>
+            </div>
+        </div>
+
+        <!-- Course Content -->
+        <div class="course-content">
+            <!-- Family Signs Section -->
+            <div class="image-gallery-section">
+                <h3>Family & Relationships</h3>
+                <p>Learn signs for family members and relationships</p>
+                
+                <div class="image-gallery">
+                    <div class="gallery-item" data-sign="family">
+                        <div class="image-container">
+                            <img src="/images/family__basic.png" alt="Family Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Family</h4>
+                        <p>Sign for family unit</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="mother">
+                        <div class="image-container">
+                            <img src="/images/mother.png" alt="Mother Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Mother</h4>
+                        <p>Sign for mother/mom</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="father">
+                        <div class="image-container">
+                            <img src="/images/father.png" alt="Father Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Father</h4>
+                        <p>Sign for father/dad</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="sister">
+                        <div class="image-container">
+                            <img src="/images/sister.png" alt="Sister Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Sister</h4>
+                        <p>Sign for sister</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="brother">
+                        <div class="image-container">
+                            <img src="/images/brother.png" alt="Brother Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Brother</h4>
+                        <p>Sign for brother</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="friend">
+                        <div class="image-container">
+                            <img src="/images/freind__basic.png" alt="Friend Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Friend</h4>
+                        <p>Sign for friend</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food & Daily Life Section -->
+            <div class="image-gallery-section">
+                <h3>Food & Daily Life</h3>
+                <p>Essential signs for food and daily activities</p>
+                
+                <div class="image-gallery">
+                    <div class="gallery-item" data-sign="food">
+                        <div class="image-container">
+                            <img src="/images/food__basic.png" alt="Food Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Food</h4>
+                        <p>Sign for food/eating</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="water">
+                        <div class="image-container">
+                            <img src="/images/water_basic.png" alt="Water Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Water</h4>
+                        <p>Sign for water/drinking</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="learn">
+                        <div class="image-container">
+                            <img src="/images/learn_basic.png" alt="Learn Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Learn</h4>
+                        <p>Sign for learning/studying</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="help">
+                        <div class="image-container">
+                            <img src="/images/help_basic.png" alt="Help Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Help</h4>
+                        <p>Sign for help/assistance</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="excuse-me">
+                        <div class="image-container">
+                            <img src="/images/excuse_me_basic.png" alt="Excuse Me Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Excuse Me</h4>
+                        <p>Polite interruption sign</p>
+                    </div>
+
+                    <div class="gallery-item" data-sign="goodbye">
+                        <div class="image-container">
+                            <img src="/images/goofbye__basic.png" alt="Goodbye Sign" class="sign-image">
+                            <div class="image-overlay">
+                                <i class="material-icons">play_arrow</i>
+                            </div>
+                        </div>
+                        <h4>Goodbye</h4>
+                        <p>Farewell sign</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Modules -->
+            <div class="learning-modules">
+                <h3>Learning Modules</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <i class="material-icons">people</i>
+                            <h4>Module 1: Family & Relationships</h4>
+                        </div>
+                        <p>Learn signs for family members, friends, and relationships.</p>
+                        <div class="module-progress">
+                            <div class="progress">
+                                <div class="determinate" id="module1Progress" style="width: 0%"></div>
+                            </div>
+                            <span id="module1Percentage">0% Complete</span>
+                        </div>
+                        <button class="btn teal start-module" data-module="1">Start Module</button>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <i class="material-icons">restaurant</i>
+                            <h4>Module 2: Food & Daily Life</h4>
+                        </div>
+                        <p>Master signs for food, drinks, and daily activities.</p>
+                        <div class="module-progress">
+                            <div class="progress">
+                                <div class="determinate" id="module2Progress" style="width: 0%"></div>
+                            </div>
+                            <span id="module2Percentage">0% Complete</span>
+                        </div>
+                        <button class="btn teal start-module" data-module="2">Start Module</button>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <i class="material-icons">chat</i>
+                            <h4>Module 3: Conversations</h4>
+                        </div>
+                        <p>Practice common conversation patterns and expressions.</p>
+                        <div class="module-progress">
+                            <div class="progress">
+                                <div class="determinate" id="module3Progress" style="width: 0%"></div>
+                            </div>
+                            <span id="module3Percentage">0% Complete</span>
+                        </div>
+                        <button class="btn teal start-module" data-module="3">Start Module</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Section -->
+            <div class="practice-section">
+                <h3>Practice Your Skills</h3>
+                <div class="practice-cards">
+                    <div class="practice-card">
+                        <i class="material-icons">quiz</i>
+                        <h4>Intermediate Quiz</h4>
+                        <p>Test your intermediate knowledge</p>
+                        <button class="btn teal" onclick="startIntermediateQuiz()">Start Quiz</button>
+                    </div>
+                    <div class="practice-card">
+                        <i class="material-icons">record_voice_over</i>
+                        <h4>Conversation Practice</h4>
+                        <p>Practice real conversations</p>
+                        <button class="btn teal">Start Practice</button>
+                    </div>
+                    <div class="practice-card">
+                        <i class="material-icons">book_online</i>
+                        <h4>Book Session</h4>
+                        <p>Get personalized help from our tutors</p>
+                        <a href="/book" class="btn teal">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h4 id="modalTitle"></h4>
+                <p id="modalDescription"></p>
+                <div class="modal-actions">
+                    <button class="btn teal" onclick="practiceSign()">Practice This Sign</button>
+                    <button class="btn grey" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+    <script src="/js/course2.js"></script>
+</body>
+</html>

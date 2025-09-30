@@ -1,87 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard - SignLearn</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignLearn - Dashboard</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="container">
+<body class="dashboard-bg">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/dashboard" class="brand-logo">
+                <i class="material-icons left">gesture</i>SignLearn
+            </a>
+            <ul class="right">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/book">Book Session</a></li>
+                <li><a href="/api/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper teal">
-      <a href="#" class="brand-logo center">SignLearn</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/book.html">Book Class</a></li>
-        <li><a href="/logout">Logout</a></li>
-      </ul>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h2>Welcome back!</h2>
+            <p>Continue your sign language learning journey</p>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="progress-overview">
+            <div class="row">
+                <div class="col s12 m6 l3">
+                    <div class="progress-card">
+                        <div class="progress-icon">
+                            <i class="material-icons">school</i>
+                        </div>
+                        <div class="progress-info">
+                            <h5>Courses Completed</h5>
+                            <span class="progress-number" id="coursesCompleted">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l3">
+                    <div class="progress-card">
+                        <div class="progress-icon">
+                            <i class="material-icons">quiz</i>
+                        </div>
+                        <div class="progress-info">
+                            <h5>Quizzes Taken</h5>
+                            <span class="progress-number" id="quizzesTaken">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l3">
+                    <div class="progress-card">
+                        <div class="progress-icon">
+                            <i class="material-icons">schedule</i>
+                        </div>
+                        <div class="progress-info">
+                            <h5>Hours Learned</h5>
+                            <span class="progress-number" id="hoursLearned">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l3">
+                    <div class="progress-card">
+                        <div class="progress-icon">
+                            <i class="material-icons">star</i>
+                        </div>
+                        <div class="progress-info">
+                            <h5>Current Streak</h5>
+                            <span class="progress-number" id="currentStreak">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses Section -->
+        <div class="courses-section">
+            <h3>Your Courses</h3>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="material-icons">favorite</i>
+                            </div>
+                            <div class="course-info">
+                                <h4>Basic Signs Course</h4>
+                                <p>Learn essential sign language gestures</p>
+                            </div>
+                        </div>
+                        <div class="course-progress">
+                            <div class="progress">
+                                <div class="determinate" id="course1Progress" style="width: 0%"></div>
+                            </div>
+                            <span id="course1Percentage">0% Complete</span>
+                        </div>
+                        <div class="course-actions">
+                            <a href="/course1" class="btn teal">Continue Learning</a>
+                            <button class="btn-flat" onclick="resetCourse('course1')">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="material-icons">people</i>
+                            </div>
+                            <div class="course-info">
+                                <h4>Intermediate Signs Course</h4>
+                                <p>Advanced conversations and expressions</p>
+                            </div>
+                        </div>
+                        <div class="course-progress">
+                            <div class="progress">
+                                <div class="determinate" id="course2Progress" style="width: 0%"></div>
+                            </div>
+                            <span id="course2Percentage">0% Complete</span>
+                        </div>
+                        <div class="course-actions">
+                            <a href="/course2" class="btn teal">Start Learning</a>
+                            <button class="btn-flat" onclick="resetCourse('course2')">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="action-card">
+                        <i class="material-icons">quiz</i>
+                        <h5>Take Quiz</h5>
+                        <p>Test your knowledge</p>
+                        <button class="btn teal" onclick="startQuiz()">Start Quiz</button>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="action-card">
+                        <i class="material-icons">event</i>
+                        <h5>Book Session</h5>
+                        <p>Get personalized help</p>
+                        <a href="/book" class="btn teal">Book Now</a>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="action-card">
+                        <i class="material-icons">person</i>
+                        <h5>Profile</h5>
+                        <p>Manage your account</p>
+                        <button class="btn teal" onclick="openProfile()">View Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-list" id="activityList">
+                <div class="activity-item">
+                    <i class="material-icons">school</i>
+                    <div class="activity-content">
+                        <p>Welcome to SignLearn!</p>
+                        <span class="activity-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <!-- Welcome Section -->
-  <h4 class="center-align">Welcome to Your Dashboard</h4>
-
-  <!-- Course Cards -->
-  <div class="row">
-    <!-- Course 1 -->
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/sign1.png" alt="Course 1">
-          <span class="card-title">Course 1</span>
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <h4>User Profile</h4>
+            <div class="profile-form">
+                <div class="input-field">
+                    <input type="email" id="profileEmail" class="validate" readonly>
+                    <label for="profileEmail">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="profileName" class="validate">
+                    <label for="profileName">Display Name</label>
+                </div>
+                <div class="input-field">
+                    <select id="profileLevel">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                    <label>Learning Level</label>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn teal" onclick="saveProfile()">Save Changes</button>
+                    <button class="btn-flat modal-close">Cancel</button>
+                </div>
+            </div>
         </div>
-        <div class="card-content">
-          <p>Learn the basics of sign language step by step.</p>
-          <p id="progress-course1">Progress: Loading...</p>
-        </div>
-        <div class="card-action">
-          <a href="/course1.html" class="btn teal">Start</a>
-        </div>
-      </div>
     </div>
 
-    <!-- Course 2 -->
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/sign2.png" alt="Course 2">
-          <span class="card-title">Course 2</span>
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <h4>Quick Quiz</h4>
+            <div id="quizContent">
+                <p>Choose the correct sign for:</p>
+                <div class="quiz-question" id="quizQuestion"></div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="quiz-score" id="quizScore" style="display: none;">
+                    <h5>Quiz Complete!</h5>
+                    <p>Your Score: <span id="finalScore">0</span>/5</p>
+                    <button class="btn teal" onclick="restartQuiz()">Try Again</button>
+                </div>
+            </div>
         </div>
-        <div class="card-content">
-          <p>Continue your journey with advanced signs.</p>
-          <p id="progress-course2">Progress: Loading...</p>
-        </div>
-        <div class="card-action">
-          <a href="/course2.html" class="btn teal">Start</a>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Book Class Shortcut -->
-  <div class="center-align">
-    <a href="/book.html" class="btn-large waves-effect waves-light teal">📅 Book a Class</a>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script>
-    // Fetch progress when dashboard loads
-    fetch("/progress")
-      .then(res => res.json())
-      .then(data => {
-        let c1 = data.find(p => p.course === "Course1");
-        let c2 = data.find(p => p.course === "Course2");
-
-        document.getElementById("progress-course1").innerText =
-          c1 ? `Progress: ${c1.completed}/${c1.total}` : "Progress: 0/3";
-
-        document.getElementById("progress-course2").innerText =
-          c2 ? `Progress: ${c2.completed}/${c2.total}` : "Progress: 0/3";
-      })
-      .catch(err => console.error("Error loading progress:", err));
-  </script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>
